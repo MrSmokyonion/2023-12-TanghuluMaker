@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FoodStick
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,10 @@ TagManager:
     locked: 0
   - name: FoodTray
     uniqueID: 3123461809
+    locked: 0
+  - name: Highest
+    uniqueID: 2007323981
+    locked: 0
+  - name: UI
+    uniqueID: 774356911
     locked: 0
