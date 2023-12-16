@@ -166,8 +166,8 @@ public class GameManager : MonoBehaviour
 
         if(currentScore >= nextTrayOpenScore)
         {
-            OpenNextFoodTray();
-            nextTrayOpenScore += 10;
+            if(OpenNextFoodTray())
+                nextTrayOpenScore += 10;
         }
     }
     public void OrderWrong()
@@ -177,9 +177,12 @@ public class GameManager : MonoBehaviour
         currentPlayTime -= 2f;
     }
 
-    private void OpenNextFoodTray()
+    private bool OpenNextFoodTray()
     {
+        if (currentOpenedTrayCount >= 8) return false;
+
         foodTrays[currentOpenedTrayCount++].OpenFoodTray();
+        return true;
     }
 }
 
