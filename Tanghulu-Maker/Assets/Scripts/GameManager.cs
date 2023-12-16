@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private float playTimeLimit;
     [SerializeField] private float currentPlayTime;
-    [SerializeField] private bool isGameOn = false;
+    public bool isGameOn { get; private set; }
 
     [Space(10)]
     [SerializeField] private float currentCustomerTimer;

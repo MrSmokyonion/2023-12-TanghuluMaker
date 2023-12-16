@@ -58,7 +58,8 @@ public class Customer : MonoBehaviour, IPointerClickHandler
             {
                 spriteContainer.SetActive(false);
                 isEmpty = true;
-                GameManager.instance.OrderWrong(false);
+                if(GameManager.instance.isGameOn)
+                    GameManager.instance.OrderWrong(false);
                 break;
             }
             yield return null;
