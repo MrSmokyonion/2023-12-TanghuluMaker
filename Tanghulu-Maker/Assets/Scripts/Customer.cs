@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour, IPointerClickHandler
 {
@@ -11,6 +12,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject spriteContainer;
     [SerializeField] private Food[] foods;
     [SerializeField] private SpriteRenderer customerSprite;
+    [SerializeField] private Slider timer;
 
     public void InitCustomer(Order _order)
     {
@@ -25,6 +27,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
             foods[i].InitFood(order.order[i]);
         }
         customerSprite.sprite = CustomerSpriteDatas.instance.GetRandomCustomerSprite();
+        StartCoroutine(OnCustomerEnter());
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -38,6 +41,27 @@ public class Customer : MonoBehaviour, IPointerClickHandler
         else
         {
             GameManager.instance.OrderWrong();
+        }
+    }
+
+    IEnumerator OnCustomerEnter()
+    {
+        yield return null;
+        timer.maxValue = 10;
+        float curTime = 10;
+        while (true)
+        {
+            curTime -= Time.deltaTime;
+            timer.value = curTime;
+
+            if (curTime < 0f)
+            {
+                spriteContainer.SetActive(false);
+                isEmpty = true;
+                GameManager.instance.OrderWrong(false);
+                break;
+            }
+            yield return null;
         }
     }
 }

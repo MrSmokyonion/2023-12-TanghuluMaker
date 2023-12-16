@@ -58,7 +58,7 @@ public class FoodSelectHandler : MonoBehaviour
         }
         else
         {
-            foodObjectTransform.position = new Vector2(12f, -5f);
+            foodObjectTransform.position = new Vector2(30f, -5f);
         }
     }
 

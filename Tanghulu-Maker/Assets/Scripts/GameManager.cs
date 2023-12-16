@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,10 +49,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text scoreText;
     [SerializeField] private GameObject gameOverImage;
     [SerializeField] private Text gameOverScoreText;
+    [SerializeField] private DOTweenAnimation camShakeDOT;
+    [SerializeField] private SoundEffects soundEffects;
 
     private void Start()
     {
-        Invoke("StartGame", 3f);
+        Invoke("StartGame", 0.3f);
     }
 
     private void Update()
@@ -104,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         listOfFoodOnStick.Add(_food);
         foodStick.PutFoodToStick(_food, listOfFoodOnStick.Count - 1);
+        soundEffects.fruit.Play();
     }
 
     public void ClearListOfFoodOnStick()
@@ -169,12 +173,16 @@ public class GameManager : MonoBehaviour
             if(OpenNextFoodTray())
                 nextTrayOpenScore += 10;
         }
+        soundEffects.bell.Play();
     }
-    public void OrderWrong()
+    public void OrderWrong(bool clearStick = true)
     {
-        ClearListOfFoodOnStick();
+        if(clearStick)
+            ClearListOfFoodOnStick(); 
         currentCustomer--;
         currentPlayTime -= 2f;
+        camShakeDOT.DORestart();
+        soundEffects.door.Play();
     }
 
     private bool OpenNextFoodTray()

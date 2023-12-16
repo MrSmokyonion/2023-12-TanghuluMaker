@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FoodTray : MonoBehaviour, IPointerDownHandler
+public class FoodTray : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
 {
     public FOOD_TYPE food;
     [SerializeField] private GameObject foodObjContainer;
@@ -62,5 +62,11 @@ public class FoodTray : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         FoodSelectHandler.instance.OnFoodTrayClicked(food);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        FoodSelectHandler.instance.OnFoodDroppedElse();
+        GameManager.instance.AddFoodToStick(food);
     }
 }
