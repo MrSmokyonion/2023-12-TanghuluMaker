@@ -13,6 +13,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Food[] foods;
     [SerializeField] private SpriteRenderer customerSprite;
     [SerializeField] private Slider timer;
+    private Coroutine coroutine;
 
     public void InitCustomer(Order _order)
     {
@@ -27,7 +28,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
             foods[i].InitFood(order.order[i]);
         }
         customerSprite.sprite = CustomerSpriteDatas.instance.GetRandomCustomerSprite();
-        StartCoroutine(OnCustomerEnter());
+        coroutine = StartCoroutine(OnCustomerEnter());
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -42,6 +43,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
         {
             GameManager.instance.OrderWrong();
         }
+        StopCoroutine(coroutine);
     }
 
     IEnumerator OnCustomerEnter()

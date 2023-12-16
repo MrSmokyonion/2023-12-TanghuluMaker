@@ -28,6 +28,7 @@ public class FoodStick : MonoBehaviour, IPointerDownHandler
 
     private void RemoveLatestFoodOnStick()
     {
+        if(foodList.Count <= 0) { return; }
         Destroy(foodList[foodList.Count-1].gameObject);
         foodList.RemoveAt(foodList.Count - 1);
     }

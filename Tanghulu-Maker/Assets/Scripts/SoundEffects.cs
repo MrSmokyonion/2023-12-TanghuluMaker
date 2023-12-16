@@ -7,4 +7,6 @@ public class SoundEffects : MonoBehaviour
     public AudioSource bell;
     public AudioSource door;
     public AudioSource fruit;
+    public AudioSource scoreUp;
+    public AudioSource shutter;
 }

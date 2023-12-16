@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (!isGameOn)
+            return;
         if(isGameOn)
         {
             currentPlayTime -= Time.deltaTime;
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
         isGameOn = false;
         gameOverImage.SetActive(true);
         gameOverScoreText.text = "SCORE : " + currentScore.ToString();
+        soundEffects.shutter.Play();
     }
 
     public void ReLoadScene()
@@ -142,6 +145,7 @@ public class GameManager : MonoBehaviour
             }
         }
         currentCustomer++;
+        soundEffects.bell.Play();
     }
 
     IEnumerator CustomerTimer()
@@ -173,7 +177,7 @@ public class GameManager : MonoBehaviour
             if(OpenNextFoodTray())
                 nextTrayOpenScore += 10;
         }
-        soundEffects.bell.Play();
+        soundEffects.scoreUp.Play();
     }
     public void OrderWrong(bool clearStick = true)
     {
@@ -223,6 +227,8 @@ public class Order
 
     public bool IsCorrectOrder(List<FOOD_TYPE> _order)
     {
+        if(_order.Count == 0) return false;
+
         for (int i = 0; i < order.Count; i++)
         {
             if (order[i] != _order[i])
