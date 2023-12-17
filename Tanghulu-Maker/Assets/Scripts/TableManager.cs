@@ -8,7 +8,7 @@ using UnityEngine;
 public class Table
 {
     [SerializeField]
-    int key;
+    int key = 2023;
     public int Key { get => key; }
 
 

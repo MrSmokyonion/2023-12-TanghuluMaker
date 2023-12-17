@@ -38,10 +38,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float currentPlayTime;
     public bool isGameOn { get; private set; }
 
-    [Space(10)]
-    [SerializeField] private float currentCustomerTimer;
-    [SerializeField] private float customerTimerLimit;
-
 
     [Space(20)]
     [SerializeField] private FoodStick foodStick;
@@ -51,6 +47,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text gameOverScoreText;
     [SerializeField] private DOTweenAnimation camShakeDOT;
     [SerializeField] private SoundEffects soundEffects;
+
+    public TableManager tableManager;
 
     private void Start()
     {
@@ -63,7 +61,7 @@ public class GameManager : MonoBehaviour
             return;
         if(isGameOn)
         {
-            currentPlayTime -= Time.deltaTime;
+            currentPlayTime -= Time.deltaTime * tableManager.GetTable(2023).Life_NaturalDecrease;
             timerSlider.value = currentPlayTime;
         }
         if(currentPlayTime < 0f)
@@ -151,10 +149,12 @@ public class GameManager : MonoBehaviour
     IEnumerator CustomerTimer()
     {
         yield return null;
-        while(isGameOn)
+        float customerSpawnTime = tableManager.GetTable(2023).Time_CustomerSpawn;
+        float currentCustomerTimer = 0f;
+        while (isGameOn)
         {
             currentCustomerTimer += Time.deltaTime;
-            if(currentCustomerTimer >= customerTimerLimit)
+            if(currentCustomerTimer >= customerSpawnTime)
             {
                 currentCustomerTimer = 0;
                 AddCustomer();
@@ -168,8 +168,9 @@ public class GameManager : MonoBehaviour
         ClearListOfFoodOnStick();
         currentScore++;
         currentCustomer--;
-        currentPlayTime += 4f;
-        if(currentPlayTime > playTimeLimit)
+        //currentPlayTime += 4f;
+        currentPlayTime += tableManager.GetTable(2023).Life_SuccessIncrease;
+        if (currentPlayTime > playTimeLimit)
             currentPlayTime = playTimeLimit;
 
         if(currentScore >= nextTrayOpenScore)
@@ -184,7 +185,7 @@ public class GameManager : MonoBehaviour
         if(clearStick)
             ClearListOfFoodOnStick(); 
         currentCustomer--;
-        currentPlayTime -= 2f;
+        currentPlayTime -= tableManager.GetTable(2023).Life_FailDecrease;
         camShakeDOT.DORestart();
         soundEffects.door.Play();
     }

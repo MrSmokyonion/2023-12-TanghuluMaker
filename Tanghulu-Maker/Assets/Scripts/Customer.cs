@@ -49,8 +49,10 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     IEnumerator OnCustomerEnter()
     {
         yield return null;
-        timer.maxValue = 10;
-        float curTime = 10;
+        
+        float curTime = GameManager.instance.tableManager.GetTable(2023).Time_CustomerExit;
+        timer.maxValue = curTime;
+
         while (true)
         {
             curTime -= Time.deltaTime;
