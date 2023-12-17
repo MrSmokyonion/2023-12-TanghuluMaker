@@ -7,8 +7,8 @@ using UnityEngine;
 [Serializable]
 public class Table
 {
-    [SerializeField]
-    int key = 2023;
+    [SerializeField, Tooltip("elapsed game second\n[this_key, next_key)")]
+    int key;
     public int Key { get => key; }
 
 
@@ -86,11 +86,12 @@ public class TableManager : ScriptableObject
     int cachedKey = -1;
     Table cachedTable = null;
 
-    public Table GetTable(int InSeccond)
+
+    public Table GetTable(float InSeccond)
     {
         _InitTables();
 
-        return _GetCachedTable(InSeccond);
+        return _GetCachedTable((int)InSeccond);
     }
 
     void _InitTables()
@@ -112,7 +113,11 @@ public class TableManager : ScriptableObject
         if (InKey != cachedKey || cachedTable == null)
         {
             cachedKey = InKey;
-            cachedTable = sortedTables[keys.BinarySearch(InKey)];
+
+            int searchResult = keys.BinarySearch(InKey);
+            int index = searchResult >= 0 ? searchResult : Math.Max((~searchResult) - 1, 0);
+
+            cachedTable = sortedTables[index];
         }
 
         return cachedTable;
