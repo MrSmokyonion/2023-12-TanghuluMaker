@@ -13,15 +13,15 @@ public class Table
 
 
     [SerializeField]
-    float life_NaturalDecrease = 1.0f;
+    float life_NaturalDecrease;
     public float Life_NaturalDecrease { get => life_NaturalDecrease; }
     [SerializeField]
-    float life_FailDecrease = 2.0f;
+    float life_FailDecrease;
     public float Life_FailDecrease { get => life_FailDecrease; }
     [SerializeField]
-    float life_SuccessIncrease = 4.0f;
+    float life_SuccessIncrease;
     public float Life_SuccessIncrease { get => life_SuccessIncrease; }
-    
+
 
     [SerializeField]
     float time_CustomerSpawn;
@@ -32,11 +32,11 @@ public class Table
 
 
     [SerializeField]
-    bool fruit_1 = true;
+    bool fruit_1;
     [SerializeField]
-    bool fruit_2 = true;
+    bool fruit_2;
     [SerializeField]
-    bool fruit_3 = true;
+    bool fruit_3;
     [SerializeField]
     bool fruit_4;
     [SerializeField]
@@ -50,7 +50,7 @@ public class Table
 
     public bool IsFruitEnable(FOOD_TYPE InFood)
     {
-        switch(InFood)
+        switch (InFood)
         {
             case FOOD_TYPE.Strawberry:
                 return fruit_1;
@@ -75,15 +75,25 @@ public class Table
 }
 
 
-[Serializable]
-public struct TableManager
+[CreateAssetMenu(fileName = "Tables", menuName = "ScriptableObjects/Tables")]
+public class TableManager : ScriptableObject
 {
     [SerializeField]
     Table[] tables;
     SortedDictionary<int, Table> sortedTables;
     List<int> keys;
 
+    int cachedKey = -1;
+    Table cachedTable = null;
+
     public Table GetTable(int InSeccond)
+    {
+        _InitTables();
+
+        return _GetCachedTable(InSeccond);
+    }
+
+    void _InitTables()
     {
         if (keys == null || keys?.Count != tables.Length)
         {
@@ -95,7 +105,16 @@ public struct TableManager
 
             keys = new(sortedTables.Keys);
         }
+    }
 
-        return sortedTables[keys.BinarySearch(InSeccond)];
+    Table _GetCachedTable(int InKey)
+    {
+        if (InKey != cachedKey || cachedTable == null)
+        {
+            cachedKey = InKey;
+            cachedTable = sortedTables[keys.BinarySearch(InKey)];
+        }
+
+        return cachedTable;
     }
 }
