@@ -96,7 +96,7 @@ public class TableManager : ScriptableObject
 
     void _InitTables()
     {
-        if (keys == null || keys?.Count != tables.Length)
+        if (sortedTables == null)
         {
             sortedTables = new();
             foreach (Table table in tables)
@@ -117,7 +117,7 @@ public class TableManager : ScriptableObject
             int searchResult = keys.BinarySearch(InKey);
             int index = searchResult >= 0 ? searchResult : Math.Max((~searchResult) - 1, 0);
 
-            cachedTable = sortedTables[index];
+            cachedTable = sortedTables[keys[index]];
         }
 
         return cachedTable;
