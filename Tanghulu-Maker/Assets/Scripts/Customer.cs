@@ -14,6 +14,8 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     [SerializeField] private SpriteRenderer customerSprite;
     [SerializeField] private Slider timer;
     private Coroutine coroutine;
+    [SerializeField] private GameObject prefab_correctSign;
+    [SerializeField] private GameObject prefab_wrongSign;
 
     public void InitCustomer(Order _order)
     {
@@ -38,10 +40,12 @@ public class Customer : MonoBehaviour, IPointerClickHandler
         if (order.IsCorrectOrder(GameManager.instance.GetListOfFoodOnStick()))
         {
             GameManager.instance.OrderCorrect();
+            Instantiate(prefab_correctSign, transform.position, transform.rotation);
         }
         else
         {
             GameManager.instance.OrderWrong();
+            Instantiate(prefab_wrongSign, transform.position, transform.rotation);
         }
         StopCoroutine(coroutine);
     }
@@ -50,7 +54,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     {
         yield return null;
         
-        float curTime = GameManager.instance.tableManager.GetTable(2023).Time_CustomerExit;
+        float curTime = GameManager.instance.dataTable.Time_CustomerExit;
         timer.maxValue = curTime;
 
         while (true)
@@ -63,7 +67,10 @@ public class Customer : MonoBehaviour, IPointerClickHandler
                 spriteContainer.SetActive(false);
                 isEmpty = true;
                 if(GameManager.instance.isGameOn)
+                {
                     GameManager.instance.OrderWrong(false);
+                    Instantiate(prefab_wrongSign, transform.position, transform.rotation);
+                }
                 break;
             }
             yield return null;

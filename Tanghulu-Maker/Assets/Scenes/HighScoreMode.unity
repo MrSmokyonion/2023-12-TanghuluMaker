@@ -1499,6 +1499,8 @@ MonoBehaviour:
   - {fileID: 1212473705}
   customerSprite: {fileID: 1985399141}
   timer: {fileID: 1345161128}
+  prefab_correctSign: {fileID: 7309871400974559833, guid: 8b96c6c79d9d6b546b7bc549b0cb3e7e, type: 3}
+  prefab_wrongSign: {fileID: 6762553500842628785, guid: ea37acdfa3081a34da210e41f1b01608, type: 3}
 --- !u!61 &357171750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2137,6 +2139,8 @@ MonoBehaviour:
   - {fileID: 1098188363}
   customerSprite: {fileID: 1004331544}
   timer: {fileID: 333369756}
+  prefab_correctSign: {fileID: 7309871400974559833, guid: 8b96c6c79d9d6b546b7bc549b0cb3e7e, type: 3}
+  prefab_wrongSign: {fileID: 6762553500842628785, guid: ea37acdfa3081a34da210e41f1b01608, type: 3}
 --- !u!61 &453887907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7861,8 +7865,6 @@ MonoBehaviour:
   - {fileID: 1711086007}
   playTimeLimit: 30
   currentPlayTime: 0
-  currentCustomerTimer: 0
-  customerTimerLimit: 3
   foodStick: {fileID: 705755853}
   timerSlider: {fileID: 2067641926}
   scoreText: {fileID: 86072089}
@@ -7870,6 +7872,21 @@ MonoBehaviour:
   gameOverScoreText: {fileID: 1132607117}
   camShakeDOT: {fileID: 519420034}
   soundEffects: {fileID: 572269496}
+  dataTable:
+    key: 2023
+    life_NaturalDecrease: 1
+    life_FailDecrease: 2
+    life_SuccessIncrease: 4
+    time_CustomerSpawn: 0
+    time_CustomerExit: 0
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 0
+    fruit_5: 0
+    fruit_6: 0
+    fruit_7: 0
+    fruit_8: 0
 --- !u!4 &1264059436
 Transform:
   m_ObjectHideFlags: 0
@@ -10451,6 +10468,8 @@ MonoBehaviour:
   - {fileID: 75156959}
   customerSprite: {fileID: 1223616910}
   timer: {fileID: 80365081}
+  prefab_correctSign: {fileID: 7309871400974559833, guid: 8b96c6c79d9d6b546b7bc549b0cb3e7e, type: 3}
+  prefab_wrongSign: {fileID: 6762553500842628785, guid: ea37acdfa3081a34da210e41f1b01608, type: 3}
 --- !u!61 &1654605222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11350,6 +11369,8 @@ MonoBehaviour:
   - {fileID: 727327383}
   customerSprite: {fileID: 1988956370}
   timer: {fileID: 1134894123}
+  prefab_correctSign: {fileID: 7309871400974559833, guid: 8b96c6c79d9d6b546b7bc549b0cb3e7e, type: 3}
+  prefab_wrongSign: {fileID: 6762553500842628785, guid: ea37acdfa3081a34da210e41f1b01608, type: 3}
 --- !u!61 &1801073562
 BoxCollider2D:
   m_ObjectHideFlags: 0

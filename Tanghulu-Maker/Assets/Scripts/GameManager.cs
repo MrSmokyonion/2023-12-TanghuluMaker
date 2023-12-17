@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DOTweenAnimation camShakeDOT;
     [SerializeField] private SoundEffects soundEffects;
 
-    public TableManager tableManager;
+    public Table dataTable;
 
     private void Start()
     {
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
             return;
         if(isGameOn)
         {
-            currentPlayTime -= Time.deltaTime * tableManager.GetTable(2023).Life_NaturalDecrease;
+            currentPlayTime -= dataTable.Life_NaturalDecrease;
             timerSlider.value = currentPlayTime;
         }
         if(currentPlayTime < 0f)
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
     IEnumerator CustomerTimer()
     {
         yield return null;
-        float customerSpawnTime = tableManager.GetTable(2023).Time_CustomerSpawn;
+        float customerSpawnTime = dataTable.Time_CustomerSpawn;
         float currentCustomerTimer = 0f;
         while (isGameOn)
         {
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
         currentScore++;
         currentCustomer--;
         //currentPlayTime += 4f;
-        currentPlayTime += tableManager.GetTable(2023).Life_SuccessIncrease;
+        currentPlayTime += dataTable.Life_SuccessIncrease;
         if (currentPlayTime > playTimeLimit)
             currentPlayTime = playTimeLimit;
 
@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
         if(clearStick)
             ClearListOfFoodOnStick(); 
         currentCustomer--;
-        currentPlayTime -= tableManager.GetTable(2023).Life_FailDecrease;
+        currentPlayTime -= dataTable.Life_FailDecrease;
         camShakeDOT.DORestart();
         soundEffects.door.Play();
     }
