@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameOn)
             return;
-        if(isGameOn)
+        if (isGameOn)
         {
             currentPlayTime -= dataTable.Life_NaturalDecrease;
             timerSlider.value = currentPlayTime;
         }
-        if(currentPlayTime < 0f)
+        if (currentPlayTime < 0f)
         {
             EndGame();
         }
@@ -124,7 +124,10 @@ public class GameManager : MonoBehaviour
 
     public void RemoveLatestFoodOnStick()
     {
-        listOfFoodOnStick.RemoveAt(listOfFoodOnStick.Count-1);
+        if (listOfFoodOnStick.Count > 0)
+        {
+            listOfFoodOnStick.RemoveAt(listOfFoodOnStick.Count - 1);
+        }
     }
 
     public void AddCustomer()
@@ -135,7 +138,7 @@ public class GameManager : MonoBehaviour
         Order order = new Order();
         order.InitOrder();
 
-        for(int i = 0; i < customerReference.Length; i++)
+        for (int i = 0; i < customerReference.Length; i++)
         {
             if (customerReference[i].isEmpty)
             {
@@ -173,17 +176,17 @@ public class GameManager : MonoBehaviour
         if (currentPlayTime > playTimeLimit)
             currentPlayTime = playTimeLimit;
 
-        if(currentScore >= nextTrayOpenScore)
+        if (currentScore >= nextTrayOpenScore)
         {
-            if(OpenNextFoodTray())
+            if (OpenNextFoodTray())
                 nextTrayOpenScore += 10;
         }
         soundEffects.scoreUp.Play();
     }
     public void OrderWrong(bool clearStick = true)
     {
-        if(clearStick)
-            ClearListOfFoodOnStick(); 
+        if (clearStick)
+            ClearListOfFoodOnStick();
         currentCustomer--;
         currentPlayTime -= dataTable.Life_FailDecrease;
         camShakeDOT.DORestart();
@@ -221,14 +224,16 @@ public class Order
     {
         for (int i = 0; i < 3; i++)
         {
-            int _var = Random.Range(1, GameManager.instance.currentOpenedTrayCount+1);
+            int _var = Random.Range(1, GameManager.instance.currentOpenedTrayCount + 1);
             order.Add((FOOD_TYPE)(_var));
         }
     }
 
     public bool IsCorrectOrder(List<FOOD_TYPE> _order)
     {
-        if(_order.Count == 0) return false;
+        if (_order.Count == 0) return false;
+
+        if (_order.Count != order.Count) return false;
 
         for (int i = 0; i < order.Count; i++)
         {
