@@ -35,6 +35,8 @@ public class Customer : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (isEmpty) return;
+
         spriteContainer.SetActive(false);
         isEmpty = true;
         if (order.IsCorrectOrder(GameManager.instance.GetListOfFoodOnStick()))
@@ -54,7 +56,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     {
         yield return null;
         
-        float curTime = GameManager.instance.dataTable.Time_CustomerExit;
+        float curTime = GameManager.instance.GetTable().Time_CustomerExit;
         timer.maxValue = curTime;
 
         while (true)

@@ -7864,7 +7864,6 @@ MonoBehaviour:
   - {fileID: 485311487}
   - {fileID: 1711086007}
   playTimeLimit: 30
-  currentPlayTime: 0
   foodStick: {fileID: 705755853}
   timerSlider: {fileID: 2067641926}
   scoreText: {fileID: 86072089}
@@ -7872,21 +7871,7 @@ MonoBehaviour:
   gameOverScoreText: {fileID: 1132607117}
   camShakeDOT: {fileID: 519420034}
   soundEffects: {fileID: 572269496}
-  dataTable:
-    key: 2023
-    life_NaturalDecrease: 1
-    life_FailDecrease: 2
-    life_SuccessIncrease: 4
-    time_CustomerSpawn: 0
-    time_CustomerExit: 0
-    fruit_1: 1
-    fruit_2: 1
-    fruit_3: 1
-    fruit_4: 0
-    fruit_5: 0
-    fruit_6: 0
-    fruit_7: 0
-    fruit_8: 0
+  dataTables: {fileID: 11400000, guid: 1c88a2c6d5d1a4a47bc7c6a51f63107f, type: 2}
 --- !u!4 &1264059436
 Transform:
   m_ObjectHideFlags: 0
