@@ -36,6 +36,7 @@ public class Customer : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isEmpty) return;
+        if (GameManager.instance.GetListOfFoodOnStick().Count <= 0) { return; }
 
         spriteContainer.SetActive(false);
         isEmpty = true;

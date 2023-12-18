@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             currentGameTime += Time.deltaTime;
             currentLife -= GetTable().Life_NaturalDecrease * Time.deltaTime;
             timerSlider.value = currentLife;
+            CheckFoodTrayEnable();
         }
         if (currentLife < 0f)
         {
@@ -184,11 +185,6 @@ public class GameManager : MonoBehaviour
         if (currentLife > playTimeLimit)
             currentLife = playTimeLimit;
 
-        if (currentScore >= nextTrayOpenScore)
-        {
-            if (OpenNextFoodTray())
-                nextTrayOpenScore += 10;
-        }
         soundEffects.scoreUp.Play();
     }
     public void OrderWrong(bool clearStick = true)
@@ -201,7 +197,15 @@ public class GameManager : MonoBehaviour
         soundEffects.door.Play();
     }
 
-    private bool OpenNextFoodTray()
+    private void CheckFoodTrayEnable()
+    {
+        if (GetTable().IsFruitEnable((FOOD_TYPE)(currentOpenedTrayCount + 1)))
+        {
+            OpenFoodTray();
+        }
+    }
+
+    private bool OpenFoodTray()
     {
         if (currentOpenedTrayCount >= 8) return false;
 

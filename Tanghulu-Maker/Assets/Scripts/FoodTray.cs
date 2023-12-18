@@ -10,6 +10,8 @@ public class FoodTray : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
 
     private BoxCollider2D col;
     private Animator animator;
+    private bool isOpened = false;
+    public bool IsOpened { get { return isOpened; } }
 
     private void Start()
     {
@@ -23,6 +25,9 @@ public class FoodTray : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
 
     public void OpenFoodTray()
     {
+        if (isOpened) return;
+        isOpened = true;
+
         switch (food)
         {
             case FOOD_TYPE.Strawberry:
