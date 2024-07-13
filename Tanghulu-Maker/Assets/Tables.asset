@@ -158,7 +158,7 @@ MonoBehaviour:
     life_FailDecrease: 8
     life_SuccessIncrease: 4
     time_CustomerSpawn: 2
-    time_CustomerExit: 6.0
+    time_CustomerExit: 6
     fruit_1: 1
     fruit_2: 1
     fruit_3: 1
@@ -298,7 +298,273 @@ MonoBehaviour:
     life_FailDecrease: 10
     life_SuccessIncrease: 5
     time_CustomerSpawn: 2
-    time_CustomerExit: 4.0
+    time_CustomerExit: 4
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 110
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.9
+    time_CustomerExit: 3.8
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 120
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.8
+    time_CustomerExit: 3.6
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 130
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.7
+    time_CustomerExit: 3.4
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 140
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.6
+    time_CustomerExit: 3.2
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 150
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.5
+    time_CustomerExit: 3
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 160
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.4
+    time_CustomerExit: 2.8
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 170
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.3
+    time_CustomerExit: 2.6
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 180
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.2
+    time_CustomerExit: 2.4
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 190
+    life_NaturalDecrease: 0.25
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1.1
+    time_CustomerExit: 2.2
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 200
+    life_NaturalDecrease: 0.1
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 1
+    time_CustomerExit: 2
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 220
+    life_NaturalDecrease: 0.1
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.9
+    time_CustomerExit: 1.8
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 240
+    life_NaturalDecrease: 0.1
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.8
+    time_CustomerExit: 1.6
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 260
+    life_NaturalDecrease: 0.1
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.7
+    time_CustomerExit: 1.4
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 280
+    life_NaturalDecrease: 0.1
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.6
+    time_CustomerExit: 1.2
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 300
+    life_NaturalDecrease: 0
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.5
+    time_CustomerExit: 1
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 320
+    life_NaturalDecrease: 0
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.4
+    time_CustomerExit: 0.8
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 340
+    life_NaturalDecrease: 0
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.3
+    time_CustomerExit: 0.6
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 360
+    life_NaturalDecrease: 0
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.2
+    time_CustomerExit: 0.4
+    fruit_1: 1
+    fruit_2: 1
+    fruit_3: 1
+    fruit_4: 1
+    fruit_5: 1
+    fruit_6: 1
+    fruit_7: 1
+    fruit_8: 1
+  - key: 380
+    life_NaturalDecrease: 0
+    life_FailDecrease: 10
+    life_SuccessIncrease: 5
+    time_CustomerSpawn: 0.1
+    time_CustomerExit: 0.2
     fruit_1: 1
     fruit_2: 1
     fruit_3: 1
