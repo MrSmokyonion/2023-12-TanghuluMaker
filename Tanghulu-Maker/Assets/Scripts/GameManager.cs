@@ -161,12 +161,11 @@ public class GameManager : MonoBehaviour
     IEnumerator CustomerTimer()
     {
         yield return null;
-        float customerSpawnTime = GetTable().Time_CustomerSpawn;
         float currentCustomerTimer = 0f;
         while (isGameOn)
         {
             currentCustomerTimer += Time.deltaTime;
-            if(currentCustomerTimer >= customerSpawnTime)
+            if(currentCustomerTimer >= GetTable().Time_CustomerSpawn)
             {
                 currentCustomerTimer = 0;
                 AddCustomer();
